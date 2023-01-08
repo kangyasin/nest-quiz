@@ -1,6 +1,6 @@
 import { Body, Controller, Get, HttpCode, Post, UsePipes, ValidationPipe } from '@nestjs/common';
-import { CreateQuizDto } from './dto/CreateQuiz.dto';
-import { QuizService } from './quiz.srvice';
+import { CreateQuizDto } from '../dto/create-quiz';
+import { QuizService } from '../service/quiz.srvice';
 
 @Controller('quiz')
 export class QuizController {
@@ -17,6 +17,6 @@ export class QuizController {
   @UsePipes(ValidationPipe)
   async createQuiz(@Body() quizData: CreateQuizDto)
   {
-    return await this.quizService.ceraeNewQuiz(quizData);
+    return await this.quizService.createNewQuiz(quizData);
   }
 }

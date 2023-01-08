@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { CreateQuizDto } from "./dto/CreateQuiz.dto";
-import { QuizRepository } from "./quiz.repository";
+import { CreateQuizDto } from "../dto/create-quiz";
+import { QuizRepository } from "../repository/quiz.repository";
 
 @Injectable()
 export class QuizService{
@@ -17,7 +17,7 @@ export class QuizService{
     return [1,2,3,4,5,6,7];
   }
 
-  async ceraeNewQuiz(quiz: CreateQuizDto)
+  async createNewQuiz(quiz: CreateQuizDto)
   {
     return await this.quizRepository.save(quiz);
   }
